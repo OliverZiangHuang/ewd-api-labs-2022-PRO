@@ -3,6 +3,8 @@ import AccountsController from '../controllers';
 
 const createRouter = (dependencies) => {
     const router = express.Router();
+//    const javascriptrouter = express.Javascriptrouter();
+
     // load controller with dependencies
     const accountsController = AccountsController(dependencies);
     router.route('/')
@@ -16,6 +18,9 @@ const createRouter = (dependencies) => {
 
     router.route('/:id')
         .post(accountsController.getAccount);
+
+    router.route('/:id')
+        .post(accountsController.updateAccount);
 
     return router;
 };
