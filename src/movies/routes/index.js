@@ -9,9 +9,8 @@ const createMoviesRouter = (dependencies) => {
     router.route('/:id')
         .get(moviesController.getMovie);
 
-    router.route('/:id')
+    router.route('/upcoming')
         .get(moviesController.getUpcomingMovie);
-
 
     router.route('/')
         .get(moviesController.find);
