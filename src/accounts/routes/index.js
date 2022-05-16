@@ -32,6 +32,11 @@ const accountsController = AccountsController(dependencies);
     router.route('/security/token')
         .post(accountsController.authenticateAccount);
 
+    router.route('/:id/favourites')
+        .post(accountsController.addFavourite);
+        
+    router.route('/:id/favourites')
+        .get(accountsController.getFavourites);
 
     return router;
 };

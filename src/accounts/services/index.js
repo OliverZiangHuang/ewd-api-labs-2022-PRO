@@ -28,6 +28,16 @@ export default {
   findByEmail: (email, {accountsRepository})=>{
     return accountsRepository.getByEmail(email);
   },
+  getFavourites: async (accountId, { accountsRepository }) => {
+    const account = await accountsRepository.get(accountId);
+    return account.favourites;
+  },
+  addFavourite: async (accountId, movieId, { accountsRepository }) => {
+    const account = await accountsRepository.get(accountId);
+    account.favourites.push(movieId);
+    return await accountsRepository.merge(account);
+
+  }
 };
 
 //{ "firstName":"Ziang","lastName":"Huang","email":"20095901@mail.wit.ie","password":"123456" }
