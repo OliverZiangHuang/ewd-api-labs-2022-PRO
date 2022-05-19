@@ -1,4 +1,5 @@
 import accountService from "../services";
+import bcrypt from 'bcryptjs';
 
 export default (dependencies) => {
 
@@ -67,6 +68,27 @@ export default (dependencies) => {
         }
     };
 
+    const verifyToken = async (request, response, next) => {
+        try { 
+        // Input
+        const authHeader = request.headers.authorization; 
+         // Treatment
+
+        if (!authHeader || !authHeader.startsWith('BEARER ')){
+            next(new Error('Token Verification Failed/Invalid Token'))
+        // response.status(403).json({message:"Forbidden"});
+        }
+      
+        const accessToken = authHeader.split(" ")[1];
+        await accountService.verifyToken(accessToken, dependencies);
+
+        //output
+        next();
+    }catch(err){
+        //Token Verification Failed
+        next(new Error(`Verification Failed ${err.message}`));
+        }
+    };
 
     return {
         addFavourite,
@@ -75,6 +97,7 @@ export default (dependencies) => {
         createAccount,
         getAccount,
         listAccounts,
-        updateAccount
+        updateAccount,
+        verifyToken
     };
 };

@@ -9,6 +9,7 @@ import createMoviesRouter from './src/movies/routes';
 import db from './src/config/db';
 import errorHandler from './src/utils/ErrorHandler';
 
+
 dotenv.config();
 db.init(); //add BELOW dotenv.config();
 
