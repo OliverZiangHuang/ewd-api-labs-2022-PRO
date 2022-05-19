@@ -1,26 +1,37 @@
 import express from 'express';
-import MoviesController from '../controllers';
-import AccountsController from '../../accounts/controllers'; //ADD THIS: imports accounts controller
+  import MoviesController from '../controllers';
+  import AccountsController from '../../accounts/controllers';
+  import logger from '../../utils/logger';
 
-const createMoviesRouter = (dependencies) => {
-    const router = express.Router();
-    // load controllers with dependencies
-    const moviesController = MoviesController(dependencies);
-    const accountsController = AccountsController(dependencies);//ADD THIS: Create accountsController with dependencies
+  const createMoviesRouter = (dependencies) => {
 
-    router.route('/*')
-    .all(accountsController.verifyToken); //ADD THIS: require token for all routes
+    logger.customLogger.info('Initializing Movies Route');
+      const router = express.Router();
+      // load controllers with dependencies
+      const moviesController = MoviesController(dependencies);
+      const accountsController = AccountsController(dependencies);
 
+       router.route('/*')
+        .all();//accountsController.verifyToken); //ADD THIS: require token for all routes
 
-    router.route('/:id')
+      router.route('/:id')
         .get(moviesController.getMovie);
 
-    router.route('/upcoming')
-        .get(moviesController.getUpcomingMovie);
-
-    router.route('/')
+      router.route('/')
         .get(moviesController.find);
+      
+      router.route('/upcoming/')
+        .get(moviesController.findUpComingMovies);
 
-    return router;
-};
-export default createMoviesRouter;
+      router.route('/:id/poster')
+        .get(moviesController.findMoviesPoster);
+      
+      router.route('/populartvshows/:pageno')
+        .get(moviesController.findpopularTvShows);
+      
+      router.route('/movievideo/:movieid')
+        .get(moviesController.findMovieVideo);
+
+      return router;
+  };
+  export default createMoviesRouter;

@@ -1,8 +1,5 @@
-
 import dotenv from 'dotenv';
 import express from 'express';
-
-
 import createAccountsRouter from "./src/accounts/routes";
 import AccountRepository from './src/accounts/repositories/mongo/AccountRepository';
 import FantasyMoviesRepository from './src/fantasymovies/repositories/mongo/FantasyMoviesRepository';

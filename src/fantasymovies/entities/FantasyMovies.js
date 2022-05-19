@@ -7,6 +7,5 @@ export default class {
         this.release = release;
         this.time= time;
         this.overview=overview;
-        //this.casts=casts;
     }
   }
