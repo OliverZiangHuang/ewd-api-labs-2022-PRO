@@ -1,11 +1,24 @@
 # ewd-api-labs-2022-PRO
 # Assignment 2 - Web API.
 ​
-Name: Your Name
+Name: Ziang Huang [Student Id: 20095901]
 ​
 ## Overview
 ​
-Give a brief overview of the Web API functionality.
+> Project have APIs which is integrated to React Movies app. Which includes
++ TMDB endpoints and react movies app integration (Middleware APIs)
++ Account creation from movies app
++ Login from movies app 
++ Add, view and delete favourite movies
++ Create, view and delete fantasy movies
++ Private and public routes (Private : Favourite & Fantasy Movies) 
++ App is deployed in Microsoft Azure (Free tier account, for demonstration)
++ Winston logger enabled in the app
++ MongoDb as backend
++ JOI Validations(Account & Fantasy movie creation)
+</br>
+
+> List of APIs created and tested
 ​
 ## Installation Requirements
 ​
