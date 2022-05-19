@@ -1,43 +1,33 @@
-import ValidationController from '../controllers/ValidationController'; //add to import statements at top of file
+import AccountValidator from './../controllers/validation';
 import express from 'express';
 import AccountsController from '../controllers';
+import logger from '../../utils/logger';
+const createRouter = (dependencies) => {       
+    const router = express.Router(); 
+    const accountsController = AccountsController(dependencies);     
+    const accountValidator = AccountValidator(dependencies);
+    
+    logger.customLogger.info('Initializing Account Route');
+    //router.post('/', accountsController.createAccount); 
+    //router.route('/').post(validationController.validateAccount,accountsController.createAccount); 
+    router.post('/', accountValidator.validateAccount , accountsController.createAccount);
 
-const createRouter = (dependencies) => {
-    const router = express.Router();
-//    const javascriptrouter = express.Javascriptrouter();
+    router.route('/').get(accountsController.listAccounts);
 
-const validationController = ValidationController(dependencies);//Add this lineLoad validation controller with dependencies
+    router.route('/:id').get(accountsController.getAccount);
 
-    // load controller with dependencies
-const accountsController = AccountsController(dependencies);
+    router.route('/:id').post(accountsController.getAccount); 
 
-    router.route('/')
-        .post(validationController.validateAccount,accountsController.createAccount); //add validateAccount to route
+    router.route('/email/:id').get(accountsController.getByEmail);  
 
-    router.route('/')
-        .post(accountsController.createAccount);
+    router.route('/security/token').post(accountsController.authenticateAccount);  
 
-        router.route('/')
-        .get(accountsController.listAccounts);
+    router.route('/:id/favourites').post(accountsController.addFavourite); 
 
-    router.route('/:id')
-        .get(accountsController.getAccount);
+    router.route('/:id/favourites').get(accountsController.getFavourites);
 
-    router.route('/:id')
-        .post(accountsController.getAccount);
-
-    router.route('/:id')
-        .post(accountsController.updateAccount);
-
-    router.route('/security/token')
-        .post(accountsController.authenticateAccount);
-
-    router.route('/:id/favourites')
-        .post(accountsController.addFavourite);
-        
-    router.route('/:id/favourites')
-        .get(accountsController.getFavourites);
-
-    return router;
+    router.route('/:id/favourites/:movieid').delete(accountsController.deleteFavourites);
+ 
+    return router; 
 };
 export default createRouter;
