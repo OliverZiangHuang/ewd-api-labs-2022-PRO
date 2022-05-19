@@ -20,9 +20,10 @@ export default {
       db.once('open', () => {
         console.log(`database connected to ${db.name} on ${db.host}`);
         //delete the existing accounts collection if in development mode
-        if (process.env.NODE_ENV=="development"){
-          db.dropCollection("accounts",function(err, result) {console.log(result)} );
-        }
+        // if (process.env.NODE_ENV=="development"){
+        //   db.dropCollection("accounts",function(err, result) {console.log(result)} );
+        // }
+        //unable drop to do test
       });
     }
 
