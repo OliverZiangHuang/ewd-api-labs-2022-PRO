@@ -1,11 +1,11 @@
 import express from 'express';
-import MoviesController from '../controllers';
+import UpcomingsController from '../controllers';
 import AccountsController from '../../accounts/controllers'; //ADD THIS: imports accounts controller
 
-const createMoviesRouter = (dependencies) => {
+const createUpcomingsRouter = (dependencies) => {
     const router = express.Router();
     // load controllers with dependencies
-    const moviesController = MoviesController(dependencies);
+    const upcomingsController = UpcomingsController(dependencies);
     const accountsController = AccountsController(dependencies);//ADD THIS: Create accountsController with dependencies
 
     router.route('/*')
@@ -13,14 +13,14 @@ const createMoviesRouter = (dependencies) => {
 
 
     router.route('/:id')
-        .get(moviesController.getMovie);
+        .get(upcomingsController.getMovie);
 
-    router.route('/upcoming')
-        .get(moviesController.getUpcomingMovie);
+    router.route('/upcomings')
+        .get(upcomingsController.getUpcomingMovie);
 
     router.route('/')
-        .get(moviesController.find);
+        .get(upcomingsController.find);
 
     return router;
 };
-export default createMoviesRouter;
+export default createUpcomingsRouter;

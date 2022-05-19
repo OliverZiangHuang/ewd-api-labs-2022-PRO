@@ -2,20 +2,22 @@ import Account from '../entities/Account';
 
 export default {
 
-  authenticate: async (email, password, {accountsRepository, authenticator}) => {
+  authenticate: async (email, password, { accountsRepository, authenticator, tokenManager }) => {
     const account = await accountsRepository.getByEmail(email);
     const result = await authenticator.compare(password, account.password);
     if (!result) {
-        throw new Error('Bad credentials');
+      throw new Error('Bad credentials');
     }
-    const token = JSON.stringify({ email: account.email });//JUST Temporary!!! TODO: make it better
+    const token = tokenManager.generate({ email: account.email });
     return token;
   },
-  registerAccount: async  (firstName, lastName, email, password, {accountsRepository}) => {
+  registerAccount: async  (firstName, lastName, email, password, {accountsRepository, authenticator }) => {
+    password = await authenticator.encrypt(password);
     const account = new Account(undefined, firstName, lastName, email, password);
     return accountsRepository.persist(account);
   },
-  updateAccount: (id, firstName, lastName, email, password, {accountsRepository})=>{
+  updateAccount: async (id, firstName, lastName, email, password, {accountsRepository, authenticator})=>{
+    password = await authenticator.encrypt(password);
     const account = new Account(undefined, id, firstName, lastName, email, password);
     return accountsRepository.persist(account);   
   },
@@ -37,7 +39,15 @@ export default {
     account.favourites.push(movieId);
     return await accountsRepository.merge(account);
 
-  }
+  },
+  verifyToken:   async (token,{accountsRepository, tokenManager}) => {
+    const decoded = await tokenManager.decode(token);
+    const user = await accountsRepository.getByEmail(decoded.email);
+    if (!user) {
+        throw new Error('Bad token');
+    }
+    return user.email;
+  },
 };
 
 //{ "firstName":"Ziang","lastName":"Huang","email":"20095901@mail.wit.ie","password":"123456" }
