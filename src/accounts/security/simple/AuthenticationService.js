@@ -1,6 +1,6 @@
 
 import AuthenticationService from '../AuthenticatorService';
-//sample for User Authentication
+
   export default class extends AuthenticationService {
     async compare(password, encryptedPassword) {
       try {
