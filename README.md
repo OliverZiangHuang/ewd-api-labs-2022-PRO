@@ -128,7 +128,6 @@ password:Joi.string().min(7).required().regex(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%
 * Two major TMBD API(Upcoming movies and popular Tv shows with pagination) is replaced with the new Web app API. 
 * Sign up account, Sign in, Add favourite movies to account, and Create fantasy movies are integrated with this Web app API.
 * JWT Bearer token based authorization is set for the private routes.
-> Github Repo of Movies App: https://github.com/WIT-Vibin-2021/moviesApp
 
 > Example of an API call from React App. for deleting favourite movies based on movies id and user id
 ​
