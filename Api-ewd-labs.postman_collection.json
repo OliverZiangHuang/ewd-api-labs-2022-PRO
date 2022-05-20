@@ -1,0 +1,679 @@
+{
+	"info": {
+		"_postman_id": "5367e072-23b3-41b1-9856-76245cb70737",
+		"name": "Api-ewd-labs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Movies",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjIwMDk1OTAxQG1haWwud2l0LmllIiwiaWF0IjoxNjUyOTk5NDM3fQ.-yPeME-h3_MOij44yDq9y2d0dIeZajLpaPwK_cQMcDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Movies",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjIwMDk1OTAxQG1haWwud2l0LmllIiwiaWF0IjoxNjUyOTk5NDM3fQ.-yPeME-h3_MOij44yDq9y2d0dIeZajLpaPwK_cQMcDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/movies/527774",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"527774"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie Posters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/movies/527774/poster",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"527774",
+						"poster"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie video",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/movies/movievideo/527774",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"movievideo",
+						"527774"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get API Upcomings",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InppYW5naHVhbmdAZ21haWwuY29tIiwiaWF0IjoxNjUyOTY2NTk4fQ.sxEncccrYCx0lwFX_txPCDbLBVBPhe_z1Jom73Lwsac",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/movies/upcoming",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"upcoming"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get API Popular TV Shows",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InppYW5naHVhbmdAZ21haWwuY29tIiwiaWF0IjoxNjUyOTY2NTk4fQ.sxEncccrYCx0lwFX_txPCDbLBVBPhe_z1Jom73Lwsac",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/movies/populartvshows/:pageno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"populartvshows",
+						":pageno"
+					],
+					"variable": [
+						{
+							"key": "pageno",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post accounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"firstName\":\"Ziang3\",\"lastName\":\"Huang\",\"email\":\"20095901@mail.wit.ie\",\"password\":\"test123456@\" }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post account's favourites",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"movieId\":\"527774\"\r\n }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/accounts/62864c0f45429bd0ea9cb37d/favourites",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						"62864c0f45429bd0ea9cb37d",
+						"favourites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account's favourites",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/accounts/6286b3088fcce724861e4959/favourites",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						"6286b3088fcce724861e4959",
+						"favourites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete account's favourites",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/accounts/62864c0f45429bd0ea9cb37d/favourites/527774",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						"62864c0f45429bd0ea9cb37d",
+						"favourites",
+						"527774"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api security token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"20095901@mail.wit.ie\",\"password\":\"test123456@\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/accounts/security/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						"security",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creat fantsy movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjIwMDk1OTAxQG1haWwud2l0LmllIiwiaWF0IjoxNjUyOTk5NDM3fQ.-yPeME-h3_MOij44yDq9y2d0dIeZajLpaPwK_cQMcDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"title\": \"Ireland's Wonderful Memories\",\r\n            \"genre\": \"Comedy\",\r\n            \"language\": \"en\",\r\n            \"release\": \"2022-10-10\",\r\n            \"time\": \"2022-10-10\",\r\n            \"overview\":\"Irish Memories, chronicling the history of Irish people in an Irish humorous way.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/fantasymovies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fantasymovies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Fantsy Movie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjIwMDk1OTAxQG1haWwud2l0LmllIiwiaWF0IjoxNjUyOTk5NDM3fQ.-yPeME-h3_MOij44yDq9y2d0dIeZajLpaPwK_cQMcDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"title\": \"String\",\r\n            \"genre\": \"String\",\r\n            \"language\": \"String\",\r\n            \"release\": \"String\",\r\n            \"time\": \"String\",\r\n            \"overview\":\"String\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/fantasymovies/6286cd8009e71f41a437b164",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fantasymovies",
+						"6286cd8009e71f41a437b164"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Fantsy Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjIwMDk1OTAxQG1haWwud2l0LmllIiwiaWF0IjoxNjUyOTk5NDM3fQ.-yPeME-h3_MOij44yDq9y2d0dIeZajLpaPwK_cQMcDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/fantasymovies/6286cc232ae4bdfc574be670",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fantasymovies",
+						"6286cc232ae4bdfc574be670"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reviews(droped)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjIwMDk1OTAxQG1haWwud2l0LmllIiwiaWF0IjoxNjUyOTk5NDM3fQ.-yPeME-h3_MOij44yDq9y2d0dIeZajLpaPwK_cQMcDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movies/527774/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"527774",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Reviews(droped)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"author\": \"Ziang\",\r\n  \"content\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/527774/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"527774",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/genres",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"genres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get accounts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjIwMDk1OTAxQG1haWwud2l0LmllIiwiaWF0IjoxNjUyOTk5NDM3fQ.-yPeME-h3_MOij44yDq9y2d0dIeZajLpaPwK_cQMcDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/accounts/email",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post favourites",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/accounts/xx/favourites",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						"xx",
+						"favourites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get favourites",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"movieId\":\"527774\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/accounts/6282b8a819d164ab3d16ecc7/favourites",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						"6282b8a819d164ab3d16ecc7",
+						"favourites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get API moives",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/movies/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
