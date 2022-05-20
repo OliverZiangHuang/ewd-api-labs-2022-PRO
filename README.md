@@ -69,7 +69,15 @@ JWT_SECRET_KEY={yourkey}
 ```
 ​
 ## Start-up
-Describe how to start/stop the API. You could go though the ``scripts:`` property of the *package.json* file.
+> To run the app, open  the terminal and type the below command
+```bat
+npm start
+```
+* The npm start will invoke the scripts in package.json "nodemon --exec babel-node index.js" 
+  * Nodemon - nodemon is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+  * babel-node is a CLI that works exactly the same as the Node. js CLI, with the added benefit of compiling with Babel presets and plugins before running it.
+  * index.js - Start index file of the app.
+> To Stop the app, in the terminal press **ctrl + c** and press **'y'** for the prompted question *Terminate batch job (Y/N)?*.
 ​
 ## API Design
 ​
@@ -79,8 +87,15 @@ Alternatively, you could also do similar to the following:
 | ----------------------------- | ------------------------- | ----------------------------- | ---- | ------ |
 | /api/movies                   | Gets a list of movies     | Add A Movie                   | N/A  | N/A    |
 | /api/movies/{movieid}         | Get a Movie               | N/A                           | N/A  | N/A    |
-| /api/movies/{movieid}/reviews | Get all reviews for movie | Create a new review for Movie | N/A  | N/A    |
-| ...                           | ...                       | ...                           | ...  | ...    |
+| /api/movies/{movieid}/poster | Get movie posters          | N/A                           | N/A  | N/A    |
+| /api/movies/movievideo/{movieid}  | Get movie videos       | N/A                           | N/A  | N/A    |
+| /api/movies/upcoming        | Get upcoming movie list     | N/A                           | N/A  | N/A    |
+| /api/movies/populartvshows/:pageno | Get popular TV shows list | N/A                           | N/A  | N/A    |
+| /api/accounts              | Get account list               | Add a account                 | N/A  | Delete account    |
+| /api/accounts/security/token  | Get account security token   | N/A          | N/A               | N/A    |
+| /api/accounts/:id/favourites  | Get account's favourites    | Add favourites to account         | N/A  | N/A    |
+| /api/accounts/:id/favourites//:movieid   | N/A             | N/A       | N/A  | Delete account's favourites     |
+| /api/fantasymovies          | Get fantasymovies         | Add fantasymovies      | N/A  | Delete fantasymovies   |
 ​
 ## Security and Authentication
 ​
@@ -88,7 +103,7 @@ Alternatively, you could also do similar to the following:
 
 | PATH    | GET             | POST                 | PUT                | DELETE           |
 | ---------| -------------- | ------------------- | ------------------ | ----------------- |
-| /api/accounts/email/{email}  | Fetch account by email    | N/A        | N/A           | N/A                    |
+| /api/accounts/email/{email}  | Fetch account by email | N/A          | N/A   | N/A       |
 | /api/fantasymovies        | N/A       | Add new fantasy movie     | N/A      | N/A       |
 | /api/movies/fantasymovie/{id}   | Fetch fantasy movie by Id | N/A       | N/A   | Delete fantasy movie   |
 | /api/accounts/{userid}/favourites | Fetch favourites by userid| Add new favorite movie  | N/A  | N/A   |
@@ -135,7 +150,7 @@ export const removeFavouriteMovies = (userid, movieid) => {
 ## Post Man Testing
 >
 - Testing is done via postman. Please download the postman desktop software and import the file "Api-ewd-labs.postman_collection.json" to view all test options. Note that the test can only be performed after the api is started (run npm start). All test endpoints are shown below.
-![1653006893(1)](https://user-images.githubusercontent.com/91920008/169425701-c091b5fa-e85f-4657-a383-5b56afdafbf8.png)
+![1653011701(1)](https://user-images.githubusercontent.com/91920008/169432995-71bf47f2-a1e6-4151-b98b-41172fdec135.png)
 - All API is tested in postman
 - Seperate collection created and all passed test run.
 ----
